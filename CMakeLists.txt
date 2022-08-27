@@ -3,4 +3,4 @@ project(Lycoris)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Lycoris src/main.cpp src/lexer.cpp)
+add_executable(Lycoris src/lexer.cpp)
