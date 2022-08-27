@@ -54,7 +54,7 @@ static int get_token() {
         while (LastChar != EOF && LastChar != '\n' && LastChar != '\r');
 
         if (LastChar != EOF)
-            return gettok();
+            return get_token();
     }
 
     // Check for end of file.  Don't eat the EOF.
