@@ -16,8 +16,8 @@ enum Token {
 static std::string IdentifierStr;
 static double NumVal;
 
-// get_token: return the next token from standard input
-static int get_token() {
+// getToken: return the next token from standard input
+static int getToken() {
     static int LastChar = ' ';
 
     // Skip any whitespace
@@ -54,7 +54,7 @@ static int get_token() {
         while (LastChar != EOF && LastChar != '\n' && LastChar != '\r');
 
         if (LastChar != EOF)
-            return get_token();
+            return getToken();
     }
 
     // Check for end of file.  Don't eat the EOF.
