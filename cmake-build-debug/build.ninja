@@ -49,12 +49,6 @@ cmake_ninja_workdir = C$:/Users/victo/CLionProjects/Lycoris/cmake-build-debug/
 
 build cmake_object_order_depends_target_Lycoris: phony || CMakeFiles/Lycoris.dir
 
-build CMakeFiles/Lycoris.dir/src/main.cpp.obj: CXX_COMPILER__Lycoris_Debug C$:/Users/victo/CLionProjects/Lycoris/src/main.cpp || cmake_object_order_depends_target_Lycoris
-  DEP_FILE = CMakeFiles\Lycoris.dir\src\main.cpp.obj.d
-  FLAGS = -g -std=gnu++2a
-  OBJECT_DIR = CMakeFiles\Lycoris.dir
-  OBJECT_FILE_DIR = CMakeFiles\Lycoris.dir\src
-
 build CMakeFiles/Lycoris.dir/src/lexer.cpp.obj: CXX_COMPILER__Lycoris_Debug C$:/Users/victo/CLionProjects/Lycoris/src/lexer.cpp || cmake_object_order_depends_target_Lycoris
   DEP_FILE = CMakeFiles\Lycoris.dir\src\lexer.cpp.obj.d
   FLAGS = -g -std=gnu++2a
@@ -69,7 +63,7 @@ build CMakeFiles/Lycoris.dir/src/lexer.cpp.obj: CXX_COMPILER__Lycoris_Debug C$:/
 #############################################
 # Link the executable Lycoris.exe
 
-build Lycoris.exe: CXX_EXECUTABLE_LINKER__Lycoris_Debug CMakeFiles/Lycoris.dir/src/main.cpp.obj CMakeFiles/Lycoris.dir/src/lexer.cpp.obj
+build Lycoris.exe: CXX_EXECUTABLE_LINKER__Lycoris_Debug CMakeFiles/Lycoris.dir/src/lexer.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Lycoris.dir
