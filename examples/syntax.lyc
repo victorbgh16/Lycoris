@@ -1,0 +1,14 @@
+let x = 5;
+let y: int = 10;
+
+def func(a: int, b: int): int {
+    return a + b;
+}
+
+def main(): int {
+	println(func(x, y));
+	let string: str = "something";
+	println(string)
+	return 0;
+}
+# this is a comment
