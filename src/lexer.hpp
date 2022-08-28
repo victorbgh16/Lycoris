@@ -11,7 +11,9 @@ enum TokenType {
     TOK_INT, // integer
     TOK_FLT, // float
     TOK_DBL,// double
+    TOK_CHAR, // character
     TOK_STR, // string
+    TOK_BOOl, // boolean
 
     TOK_IDEN, // identifier
 
@@ -59,7 +61,50 @@ enum TokenType {
     TOK_EQ, // ==
     TOK_LT, // <
     TOK_GT, // >
+    TOK_LE, // <=
+    TOK_GE, // >=
+    TOK_NE, // !=
+    // Bitwise
+    TOK_BAND, // bitwise AND / &
+    TOK_BOR, // bitwise OR / |
+    TOK_BNOT, // bitwise NOT / ~
+    TOK_BXOR, // bitwise XOR / ^
+    // Bitwise assignment
+    TOK_BAND_ASSN, // &=
+    TOK_BOR_ASSN, // |=
+    TOK_BNOT_ASSN, // ~=
+    TOK_BXOR_ASSN, // ^=
+    // Misc.
+    TOK_LSHIFT, // <<
+    TOK_RSHIFT, // >>
+    TOK_LSHIFT_ASSN, // <<=
+    TOK_RSHIFT_ASSN, // >>=
+    // Conditional ( ? : )
+    TOK_QUEST, // ?
+    TOK_COL, // :
 
+    // Varargs
+    TOK_TDOT, // ...
+
+    // Separators
+    TOK_DOT, // .
+    TOK_COMMA, // ,
+    TOK_AT, // @
+    TOK_SPC, // space
+    TOK_TAB, // tab
+    TOK_NEWL, // \n
+    TOK_COLS, // Semicolon
+    //Parenthesis, Braces, Brackets
+    TOK_LPAREN, // (
+    TOK_RPAREN, // )
+    TOK_LBRACE, // {
+    TOK_RBRACE, // }
+    TOK_LBRACK, // [
+    TOK_RBRACK, // ]
+
+    TOK_INVALID, // invalid
+
+    _TOK_LAST,
 };
 
 #endif //LYCORIS_LEXER_HPP
