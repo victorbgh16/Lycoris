@@ -1,110 +1,152 @@
 // Created by Victor Berghausen on 28.08.2022.
+// credit to https://www.github.com/scribe-lang/scribe for a lot of this code
 
 #ifndef LYCORIS_LEXER_HPP
 #define LYCORIS_LEXER_HPP
 
+#include <cstddef>
 #include <vector>
 #include <string>
 
-enum TokenType {
-    // Data types
-    TOK_INT, // integer
-    TOK_FLT, // float
-    TOK_DBL,// double
-    TOK_CHAR, // character
-    TOK_STR, // string
-    TOK_BOOl, // boolean
+namespace sc
+{
+    namespace lex
+    {
+        enum TokType
+        {
+            INT,
+            FLT,
 
-    TOK_IDEN, // identifier
+            CHAR,
+            STR,
+            IDEN,
 
-    // Keywords
-    TOK_ENUM, // enumeration
-    TOK_IMPORT, // import
-    TOK_FROM, // from (from x import sth)
-    TOK_AS, // as (import x as y)
-    TOK_STRUCT, // structure
-    TOK_FN, // function
-    TOK_RETURN, // return
-    TOK_IF, // if
-    TOK_ELIF, // else if
-    TOK_ELSE, // else
-    TOK_FOR, // for
-    TOK_IN, // in
-    TOK_CONTINUE, // continue
-    TOK_BREAK, // break
-    TOK_TRUE, // true
-    TOK_FALSE, // false
+            // Keywords
+            LET,
+            FN,
+            IF,
+            ELIF,
+            ELSE,
+            FOR,
+            IN,
+            WHILE,
+            RETURN,
+            CONTINUE,
+            BREAK,
+            VOID,
+            TRUE,
+            FALSE,
+            NIL,
+            ANY,  // type: any
+            TYPE, // type: type
+            I1,
+            I8,
+            I16,
+            I32,
+            I64,
+            U8,
+            U16,
+            U32,
+            U64,
+            F32,
+            F64,
+            OR,
+            STATIC,
+            CONST,
+            VOLATILE,
+            DEFER,
+            EXTERN,
+            COMPTIME,
+            GLOBAL,
+            INLINE,
+            STRUCT,
+            ENUM,
 
-    // Operators
-    TOK_ASSN, // assignment
-    // Arithmetic
-    TOK_ADD, // +
-    TOK_SUB, // -
-    TOK_MUL, // *
-    TOK_DIV, // /
-    TOK_MOD, // %
-    // Arithmetic assignment
-    TOK_ADD_ASSN, // +=
-    TOK_SUB_ASSN, // -=
-    TOK_MUL_ASSN, // *=
-    TOK_DIV_ASSN, // /=
-    TOK_MOD_ASSN, // %=
-    // power
-    TOK_POW, // **
-    // Unary
-    TOK_UADD, // +expression
-    TOK_USUB, // -expression
-    // Logic
-    TOK_AND, // &&
-    TOK_OR, // ||
-    TOK_NOT, // !
-    TOK_EQ, // ==
-    TOK_LT, // <
-    TOK_GT, // >
-    TOK_LE, // <=
-    TOK_GE, // >=
-    TOK_NE, // !=
-    // Bitwise
-    TOK_BAND, // bitwise AND / &
-    TOK_BOR, // bitwise OR / |
-    TOK_BNOT, // bitwise NOT / ~
-    TOK_BXOR, // bitwise XOR / ^
-    // Bitwise assignment
-    TOK_BAND_ASSN, // &=
-    TOK_BOR_ASSN, // |=
-    TOK_BNOT_ASSN, // ~=
-    TOK_BXOR_ASSN, // ^=
-    // Misc.
-    TOK_LSHIFT, // <<
-    TOK_RSHIFT, // >>
-    TOK_LSHIFT_ASSN, // <<=
-    TOK_RSHIFT_ASSN, // >>=
-    // Conditional ( ? : )
-    TOK_QUEST, // ?
-    TOK_COL, // :
+            // Operators
+            ASSN,
+            // Arithmetic
+            ADD,
+            SUB,
+            MUL,
+            DIV,
+            MOD,
+            ADD_ASSN,
+            SUB_ASSN,
+            MUL_ASSN,
+            DIV_ASSN,
+            MOD_ASSN,
+            // Post/Pre Inc/Dec
+            XINC,
+            INCX,
+            XDEC,
+            DECX,
+            // Unary
+            UADD,
+            USUB,
+            UAND, // address of
+            UMUL, // dereference
+            // Logic
+            LAND,
+            LOR,
+            LNOT,
+            // Comparison
+            EQ,
+            LT,
+            GT,
+            LE,
+            GE,
+            NE,
+            // Bitwise
+            BAND,
+            BOR,
+            BNOT,
+            BXOR,
+            BAND_ASSN,
+            BOR_ASSN,
+            BNOT_ASSN,
+            BXOR_ASSN,
+            // Others
+            LSHIFT,
+            RSHIFT,
+            LSHIFT_ASSN,
+            RSHIFT_ASSN,
 
-    // Varargs
-    TOK_TDOT, // ...
+            SUBS,
 
-    // Separators
-    TOK_DOT, // .
-    TOK_COMMA, // ,
-    TOK_AT, // @
-    TOK_SPC, // space
-    TOK_TAB, // tab
-    TOK_NEWL, // \n
-    TOK_COLS, // Semicolon
-    //Parenthesis, Braces, Brackets
-    TOK_LPAREN, // (
-    TOK_RPAREN, // )
-    TOK_LBRACE, // {
-    TOK_RBRACE, // }
-    TOK_LBRACK, // [
-    TOK_RBRACK, // ]
+            FNCALL, // function call and struct template specialization
+            STCALL, // instantiate structs
 
-    TOK_INVALID, // invalid
+            // Varargs
+            PreVA,
+            PostVA,
 
-    _TOK_LAST,
-};
+            // Separators
+            DOT,
+            QUEST,
+            COL,
+            COMMA,
+            AT,
+            SPC,
+            TAB,
+            NEWL,
+            COLS, // Semi colon
+            ARROW,
+            // Parenthesis, Braces, Brackets
+            LPAREN,
+            RPAREN,
+            LBRACE,
+            RBRACE,
+            LBRACK,
+            RBRACK,
 
+            FEOF,
+            INVALID,
+
+            _LAST,
+        };
+
+extern const char *TokenStrs[_TOK_LAST];
+
+// class Token
+} // namespace lexer
 #endif //LYCORIS_LEXER_HPP
