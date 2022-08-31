@@ -144,6 +144,52 @@ namespace lyc {
 
         extern const char *TokStrs[_LAST];
 
+        class Token {
+            TokType val;
+
+        public:
+            Token(const int &tok);
+
+            inline bool isData() const {
+                return val == INT || val == FLT || val == CHAR || val == STR || val == IDEN || val == VOID ||
+                       val == TRUE || val == FALSE || val == NIL || val == ANY || val == TYPE || val == I1 ||
+                       val == I8 || val == I16 || val == I32 || val == I64 || val == U8 || val == U16 ||
+                       val == U32 || val == U64 || val == F32 || val == F64;
+            }
+
+            inline bool isLiteral() const {
+                return val == INT || val == FLT || val == CHAR || val == STR;
+            }
+
+            inline bool isOper() const {
+                return val >= ASSN && val <= RBRACK;
+            }
+
+            inline bool isUnaryPre() const {
+                return val == UADD || val == USUB || val == UAND || val == UMUL || val == INCX || val == DECX ||
+                       val == LNOT || val == BNOT;
+            }
+
+            inline bool isUnaryPost() const {
+                return val == XINC || val == XDEC;
+            }
+
+            inline bool isComparison() const {
+                return val == EQ || val == LT || val == GT || val == LE || val == GE || val == NE;
+            }
+
+            inline bool isAssign() const {
+                return val == ASSN || val == ADD_ASSN || val == SUB_ASSN || val == MUL_ASSN || val == DIV_ASSN ||
+                       val == MOD_ASSN || val == BAND_ASSN || val == BOR_ASSN || val == BNOT_ASSN || val == BXOR_ASSN ||
+                       val == LSHIFT_ASSN || val == RSHIFT_ASSN;
+            }
+
+            inline bool isValid() const {
+                return val != INVALID && val != FEOF;
+            }
+
+
+        };
 
     } // namespace lex
 } // namespace lyc
