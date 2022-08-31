@@ -217,6 +217,14 @@ namespace lyc {
         };
 
         struct Data {
+            std::string_view s;
+            int64_t i;
+            long double f;
+
+            bool cmp(const Data &other, const TokType Type) const;
+        };
+
+        class Lexeme {
 
         };
 
