@@ -144,7 +144,7 @@ namespace lyc {
 
         extern const char *TokStrs[_LAST];
 
-        class Token {
+        class Tok {
             TokType val;
 
         public:
@@ -188,6 +188,35 @@ namespace lyc {
                 return val != INVALID && val != FEOF;
             }
 
+            inline const char *cStr() const {
+                return TokStrs[val];
+            }
+
+            inline std::string str() const {
+                return TokStrs[val];
+            }
+
+            const char *getOperCStr() const;
+            const char *getUnaryNoCharCstr() const;
+
+            inline bool operator==(const Tok &other) const {
+                return val == other.val;
+            }
+
+            inline TokType getVal() const {
+                return val;
+            }
+
+            inline void setVal(const TokType &v) {
+                val == v;
+            }
+
+            inline bool isType(const TokType &other) const {
+                return val == other;
+            }
+        };
+
+        struct Data {
 
         };
 
