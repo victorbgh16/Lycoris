@@ -1,3 +1,7 @@
+import <idunno>
+from <whatever> import <ihavenoidea>
+import "yourownthing"
+
 let x = 5;
 let y: int = 10;
 
@@ -9,6 +13,20 @@ def main(): int {
 	println(func(x, y));
 	let string: str = "something";
 	println(string)
+	
+	for i in range(1,5), i++ {
+	do_something;
+	}
+
+	_ = 0
+	while _ < 2 {
+	do_another_thing;
+	}
+
+	do {
+	idontcare
+	} while _ <= 7;
+	
 	return 0;
 }
 # this is a comment
