@@ -207,6 +207,9 @@ namespace lyc {
             }
             return "";
 
+            bool Data::cmp(const Data &other, const TokType Type) const {
+
+            }
         }
     }
 }
