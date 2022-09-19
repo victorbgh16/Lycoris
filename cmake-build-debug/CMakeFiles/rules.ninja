@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = C:\Users\victo\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.3739.54\bin\cmake\win\bin\cmake.exe --regenerate-during-build -SC:\Users\victo\CLionProjects\Lycoris -BC:\Users\victo\CLionProjects\Lycoris\cmake-build-debug
+  command = C:\Users\victo\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe --regenerate-during-build -SC:\Users\victo\CLionProjects\Lycoris -BC:\Users\victo\CLionProjects\Lycoris\cmake-build-debug
   description = Re-running CMake...
   generator = 1
 
@@ -51,7 +51,7 @@ rule RERUN_CMAKE
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = C:\Users\victo\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.3739.54\bin\ninja\win\ninja.exe $FILE_ARG -t clean $TARGETS
+  command = C:\Users\victo\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\ninja\win\ninja.exe $FILE_ARG -t clean $TARGETS
   description = Cleaning all built files...
 
 
@@ -59,6 +59,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = C:\Users\victo\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.3739.54\bin\ninja\win\ninja.exe -t targets
+  command = C:\Users\victo\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\ninja\win\ninja.exe -t targets
   description = All primary targets available:
 

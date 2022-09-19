@@ -148,7 +148,7 @@ namespace lyc {
             TokType val;
 
         public:
-            Token(const int &tok);
+            Tok(const int &tok);
 
             inline bool isData() const {
                 return val == INT || val == FLT || val == CHAR || val == STR || val == IDEN || val == VOID ||
