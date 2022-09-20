@@ -206,10 +206,19 @@ namespace lyc {
                 default: break;
             }
             return "";
-
-            bool Data::cmp(const Data &other, const TokType Type) const {
-
-            }
         }
+
+        bool Data::cmp(const Data &other, const TokType type) const {
+
+            switch(type) {
+                case STR:
+                case IDEN: return s == other.s;
+                case INT: return i == other.i;
+                case FLT: return f == other.f;
+                default: break;
+            }
+            return false;
+        }
+
     }
 }

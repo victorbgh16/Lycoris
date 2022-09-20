@@ -221,7 +221,7 @@ namespace lyc {
             int64_t i;
             long double f;
 
-            bool cmp(const Data &other, const TokType Type) const;
+            bool cmp(const Data &other, const TokType type) const;
         };
 
         class Lexeme {
