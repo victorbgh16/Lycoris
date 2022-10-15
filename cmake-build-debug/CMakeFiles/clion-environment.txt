@@ -1,4 +1,4 @@
 ToolSet: 5.4 (local)@C:\MinGW
 Options: 
 
-Options:-DCMAKE_MAKE_PROGRAM=C:/Users/victo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/ninja/win/ninja.exe
+Options:-DCMAKE_MAKE_PROGRAM=C:/Users/victo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/ninja/win/ninja.exe
