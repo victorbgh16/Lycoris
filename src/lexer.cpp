@@ -1,6 +1,6 @@
 // Created by Victor Berghausen on 28.08.2022.
 
-#include "lexer.hpp"
+#include "../includes/lexer.hpp"
 
 #include <charconv>
 
